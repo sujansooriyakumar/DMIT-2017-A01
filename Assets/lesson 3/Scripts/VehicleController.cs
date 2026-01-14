@@ -1,3 +1,5 @@
+using System.Collections;
+using System.IO;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,13 +12,13 @@ public class VehicleController : MonoBehaviour
     public float accelerationValue;
     public float brakeValue;
     public float steerValue;
-    public float decelerationValue = 1.0f;
+    public float decelerationValue = -4.0f;
 
     public float currentSpeed;
     public float maxSpeed;
 
-    const float ACCELERATION_FACTOR = 5.0f;
-    const float BRAKE_FACTOR = 5.0f;
+    const float ACCELERATION_FACTOR = 10.0f;
+    const float BRAKE_FACTOR = -5.0f;
     const float STEER_FACTOR = 10.0f;
 
     private Rigidbody rb;
@@ -62,15 +64,27 @@ public class VehicleController : MonoBehaviour
         currentSpeed += accelerationValue * Time.deltaTime;
         currentSpeed -= brakeValue * Time.deltaTime;
         currentSpeed = Mathf.Clamp(currentSpeed, 0f, maxSpeed);
-
         if(Mathf.Abs(currentSpeed) > 0.01f)
         {
             float steer = steerValue * Mathf.Sign(currentSpeed);
             transform.Rotate(0f, steer * Time.deltaTime, 0f);
         }
 
-        Vector3 tmp = transform.forward * currentSpeed;
-        tmp.y = rb.linearVelocity.y;
+        Vector3 tmp = transform.forward * (currentSpeed);
         rb.linearVelocity = tmp;
+    }
+
+    public void SpeedBoost(float boost_)
+    {
+        StartCoroutine(BoostTimer(boost_, 10f));
+    }
+
+    private IEnumerator BoostTimer(float boost_, float duration_)
+    {
+        currentSpeed += boost_;
+        maxSpeed += boost_ * 2;
+        yield return new WaitForSeconds(duration_);
+        currentSpeed -= boost_;
+        maxSpeed -= boost_ * 2;
     }
 }
