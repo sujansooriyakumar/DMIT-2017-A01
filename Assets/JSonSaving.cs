@@ -1,0 +1,47 @@
+using UnityEngine;
+using System.IO;
+
+public class JSonSaving : MonoBehaviour
+{
+    public string filePath;
+    public SaveData profileData;
+    string profileName;
+    [ContextMenu("JSON Save")]
+
+    public void SaveData()
+    {
+        
+        string file = "Assets/Resources/sujan.json";
+        string json = JsonUtility.ToJson(profileData, true);
+
+        File.WriteAllText(file, json);
+        
+    }
+
+    public void SaveData(SaveData profile_)
+    {
+        string file = filePath + profile_.profileName + ".json";
+        string json = JsonUtility.ToJson(profile_, true);
+        File.WriteAllText(file, json);
+    }
+
+
+
+    [ContextMenu("JSON Load")]
+
+    public void LoadData()
+    {
+        string s = "Assets/Resources/sujan.json";
+        if (File.Exists(s))
+        {
+            string json = File.ReadAllText(s);
+
+            profileData = JsonUtility.FromJson<SaveData>(json);
+        }
+
+        else
+        {
+            Debug.LogError("Save file not found");
+        }
+    }
+}
