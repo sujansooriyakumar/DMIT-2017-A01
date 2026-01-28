@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: walkDown
+  m_Name: idleRight
   m_EditorClassIdentifier: Assembly-CSharp::AnimationData
-  animationName: walkDown
+  animationName: 
   frames:
-  - {fileID: 1911158174, guid: c8fb264236da5dd4ebcff4db2625dcd8, type: 3}
-  - {fileID: 1571216626, guid: c8fb264236da5dd4ebcff4db2625dcd8, type: 3}
-  - {fileID: -933011615, guid: c8fb264236da5dd4ebcff4db2625dcd8, type: 3}
-  frameDelay: 0.1
+  - {fileID: 1651539757, guid: c8fb264236da5dd4ebcff4db2625dcd8, type: 3}
+  frameDelay: 0
