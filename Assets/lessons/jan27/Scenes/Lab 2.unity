@@ -152,6 +152,9 @@ MonoBehaviour:
   library: {fileID: 11400000, guid: b3b03f732d0a1a045a67d8376df826ef, type: 2}
   mapParent: {fileID: 791511146}
   currentMap: {fileID: 1021272992}
+  OnMapEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &445386976
 Transform:
   m_ObjectHideFlags: 0
