@@ -4,11 +4,10 @@ public class CircleOverlap : MonoBehaviour
 {
     public float radius;
     public string tagToCheck;
-
+    public Color color;
     private void Update()
     {
-        CustomDebug.DrawDebugCircle(transform.position, radius, Color.red, 50);
-        Debug.Log(CircleOverlapCheck());
+        CustomDebug.DrawDebugCircle(transform.position, radius, color, 50);
     }
 
     public bool CircleOverlapCheck()
