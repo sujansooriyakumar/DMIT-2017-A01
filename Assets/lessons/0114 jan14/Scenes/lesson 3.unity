@@ -760,8 +760,6 @@ GameObject:
   - component: {fileID: 1619721731}
   - component: {fileID: 1619721736}
   - component: {fileID: 1619721737}
-  - component: {fileID: 1619721738}
-  - component: {fileID: 1619721739}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Player
@@ -910,8 +908,8 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 495171dd-90fb-461d-a9d1-fe9456dbb938
-      m_Path: <XInputController>/buttonSouth
+      m_Id: 7e75cf03-f0a4-48a2-8101-a11577c66289
+      m_Path: <Keyboard>/upArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -925,15 +923,7 @@ MonoBehaviour:
     m_Id: faa9b0af-4cea-4b66-b374-3f7ba3208fd8
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 8c5dad02-86a3-4bd8-9154-3365f93d314d
-      m_Path: <XInputController>/buttonEast
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Brake
-      m_Flags: 0
+    m_SingletonActionBindings: []
     m_Flags: 0
   steer:
     m_Name: Steer
@@ -944,7 +934,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 1D Axis
-      m_Id: 8e1c9b78-1a6f-4fff-b553-3040beb629bb
+      m_Id: 4258845c-5b1c-4b63-b5bd-5cbda736b8d3
       m_Path: 1DAxis
       m_Interactions: 
       m_Processors: 
@@ -952,16 +942,16 @@ MonoBehaviour:
       m_Action: Steer
       m_Flags: 4
     - m_Name: negative
-      m_Id: 3f2610e3-8e74-4a98-9546-32fb1f794f7e
-      m_Path: <Gamepad>/leftStick/left
+      m_Id: 20cd8e40-da86-43f6-9db0-d67f36160308
+      m_Path: <Keyboard>/leftArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Steer
       m_Flags: 8
     - m_Name: positive
-      m_Id: 123cceb1-2e6a-4b89-8a60-665db456e11e
-      m_Path: <Gamepad>/leftStick/right
+      m_Id: 79511686-0534-41ed-9776-fcefb47b263c
+      m_Path: <Keyboard>/rightArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -987,40 +977,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GhostDataRecorder
   ghostData:
     ghostDataFrames: []
---- !u!95 &1619721738
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619721730}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3370d59a905d1724e82ff3627358b7bf, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1619721739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619721730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 908cdbef74f793c47bfd6a63125790f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimationTest
 --- !u!1 &1683079178
 GameObject:
   m_ObjectHideFlags: 0
