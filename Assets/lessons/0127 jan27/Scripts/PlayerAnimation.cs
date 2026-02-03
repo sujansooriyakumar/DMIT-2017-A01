@@ -20,8 +20,6 @@ public class PlayerAnimation : MonoBehaviour
         TopDownPlayerMovement topDownPlayerMovement = GetComponent<TopDownPlayerMovement>();
         topDownPlayerMovement.OnMove += SetAnimationState;
     }
-
-    
     public void SetAnimationState(Vector2 moveDirection)
     {
         if(moveDirection == Vector2.zero)
@@ -49,7 +47,6 @@ public class PlayerAnimation : MonoBehaviour
         spriteAnimator.InitializeAnimation(animationDictionary[currentState]);
 
     }
-
     public PlayerAnimationState GetIdleState(PlayerAnimationState currentState)
     {
         PlayerAnimationState tmp = PlayerAnimationState.IDLE_DOWN;
@@ -77,7 +74,6 @@ public class PlayerAnimation : MonoBehaviour
         return tmp;
     }
 
-   
     public void InitializeDictionary()
     {
         foreach (AnimationStateData animationStateData in animationStates)
