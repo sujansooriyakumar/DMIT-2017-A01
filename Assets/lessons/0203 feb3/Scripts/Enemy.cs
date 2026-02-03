@@ -14,6 +14,20 @@ public abstract class Enemy : MonoBehaviour
     public CircleOverlap sightline;
     public CircleOverlap attackRange;
 
+    public Vector2 playerPosition;
+
+    private Coroutine attackCoroutine;
+
+    private void Awake()
+    {
+        sightline.OnOverlap += SetPlayerPosition;
+        attackRange.OnOverlap += SetPlayerPosition;
+    }
+
+    public void SetPlayerPosition(Vector2 pos_)
+    {
+        playerPosition = pos_;
+    }
     public abstract void Patrol();
     public abstract void Attack();
     public abstract void TakeDamage(float dmg_);
@@ -34,7 +48,7 @@ public abstract class Enemy : MonoBehaviour
     }
     public void StartAttackCoroutine()
     {
-        StartCoroutine(AttackCoroutine());
+        if(attackCoroutine == null) attackCoroutine = StartCoroutine(AttackCoroutine());
     }
     public IEnumerator AttackCoroutine()
     {
