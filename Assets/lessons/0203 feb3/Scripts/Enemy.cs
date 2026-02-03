@@ -3,19 +3,18 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    public string enemyName;
-    
+    [Header("Combat Params")]
     public int HP;
     public int ATK;
     public int DEF;
-
     public float attackDelay;
 
+    [Header("Behavior Ranges")]
     public CircleOverlap sightline;
     public CircleOverlap attackRange;
 
-    public Vector2 playerPosition;
-
+    private Vector2 playerPosition;
+    public Vector2 patrolRange;
     private Coroutine attackCoroutine;
 
     private void Awake()
@@ -28,7 +27,19 @@ public abstract class Enemy : MonoBehaviour
     {
         playerPosition = pos_;
     }
-    public abstract void Patrol();
+    public void Patrol()
+    {
+
+    }
+
+    private IEnumerator PatrolCoroutine(Vector3 nextPos)
+    {
+        while(transform.position != nextPos)
+        {
+            yield return null;
+        }
+        yield return null;
+    }
     public abstract void Attack();
     public abstract void TakeDamage(float dmg_);
     public abstract void Die();
@@ -57,7 +68,7 @@ public abstract class Enemy : MonoBehaviour
             Attack();
             yield return new WaitForSeconds(attackDelay);
         }
-        yield return null;
+       // yield return null;
     }
 
 }

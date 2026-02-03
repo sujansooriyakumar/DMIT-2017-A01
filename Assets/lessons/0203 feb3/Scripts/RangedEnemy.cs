@@ -20,10 +20,7 @@ public class RangedEnemy : Enemy
         throw new System.NotImplementedException();
     }
 
-    public override void Patrol()
-    {
-        throw new System.NotImplementedException();
-    }
+    
 
     public override void Pursue()
     {
