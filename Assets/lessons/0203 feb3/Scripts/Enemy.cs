@@ -22,11 +22,14 @@ public abstract class Enemy : MonoBehaviour
     private Vector2 nextPosition;
     private AIMovement aiMovement;
 
+    private bool patroling;
+
     private void Awake()
     {
         sightline.OnOverlap += SetPlayerPosition;
         attackRange.OnOverlap += SetPlayerPosition;
         aiMovement = GetComponent<AIMovement>();
+        aiMovement.OnArrive += Patrol;
     }
 
     public void SetPlayerPosition(Vector2 pos_)
@@ -41,32 +44,39 @@ public abstract class Enemy : MonoBehaviour
         aiMovement.InitializeMovement(nextPosition);
     }
 
-    private IEnumerator PatrolCoroutine(Vector3 nextPos)
-    {
-        while(transform.position != nextPos)
-        {
-            yield return null;
-        }
-        yield return null;
-    }
+  
+
+ 
     public abstract void Attack();
     public void TakeDamage(int dmg_)
     {
         HP -= dmg_;
     }
     public abstract void Die();
-    public abstract void Pursue();
+    public void Pursue()
+    {
+        aiMovement.InitializeMovement(playerPosition);
+    }
+
+
 
     private void Update()
     {
+        if (attackRange.CircleOverlapCheck())
+        {
+            aiMovement.StopMovement();
+            return;
+        }
+
         if (sightline.CircleOverlapCheck())
         {
             Pursue();
+            return;
         }
-
-        if (attackRange.CircleOverlapCheck())
+        if (!patroling)
         {
-            StartAttackCoroutine();
+            Patrol();
+            patroling = true;
         }
     }
     public void StartAttackCoroutine()

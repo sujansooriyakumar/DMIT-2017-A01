@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Specialized;
 using UnityEngine;
@@ -7,26 +8,37 @@ public class AIMovement : MonoBehaviour
     public float range;
     public float moveSpeed;
     private Rigidbody2D rb;
+    public event Action OnArrive;
+    Vector3 newPosition;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void InitializeMovement(Vector3 newPosition)
+    public void InitializeMovement(Vector3 newPosition_)
     {
-        StartCoroutine(MoveToPosition(newPosition));
+        newPosition = newPosition_;
+        StartCoroutine(MoveToPosition());
     }
-    private IEnumerator MoveToPosition(Vector3 newPosition_)
+
+    public void SetNewPosition(Vector3 newPosition_) { newPosition = newPosition_; }
+
+    public void StopMovement()
+    {
+        StopAllCoroutines();
+        rb.linearVelocity = Vector3.zero;
+    }
+    private IEnumerator MoveToPosition()
     {
         bool inRange = false;
 
         while (!inRange)
         {
-            Vector2 moveDir = newPosition_ - transform.position;
+            Vector2 moveDir = newPosition - transform.position;
             moveDir.Normalize();
             rb.linearVelocity = moveDir * moveSpeed;
-            inRange = (Vector2.Distance(transform.position, newPosition_) < range);
+            inRange = (Vector2.Distance(transform.position, newPosition) < range);
 
             if (inRange)
             {
@@ -34,6 +46,8 @@ public class AIMovement : MonoBehaviour
             }
             yield return null;
         }
+        OnArrive?.Invoke();
+
         yield return null;
     }
 }

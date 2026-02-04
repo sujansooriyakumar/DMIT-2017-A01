@@ -23,11 +23,7 @@ public class RangedEnemy : Enemy
 
     
 
-    public override void Pursue()
-    {
-    }
-
-    
+ 
 
    
 }
