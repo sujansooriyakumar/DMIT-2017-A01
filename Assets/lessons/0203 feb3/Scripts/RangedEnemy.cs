@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class RangedEnemy : Enemy
 {
+    [Header("Projectile Info")]
     public GameObject projectilePrefab;
     public Transform projectileSpawnLocation;
     public override void Attack()
@@ -26,10 +27,7 @@ public class RangedEnemy : Enemy
     {
     }
 
-    public override void TakeDamage(float dmg_)
-    {
-        throw new System.NotImplementedException();
-    }
+    
 
    
 }

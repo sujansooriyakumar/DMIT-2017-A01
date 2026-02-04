@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(AIMovement))]
 public abstract class Enemy : MonoBehaviour
 {
     [Header("Combat Params")]
@@ -14,22 +15,30 @@ public abstract class Enemy : MonoBehaviour
     public CircleOverlap attackRange;
 
     private Vector2 playerPosition;
-    public Vector2 patrolRange;
     private Coroutine attackCoroutine;
+
+    public Vector2 patrolRange;
+    private Vector2 startingPosition;
+    private Vector2 nextPosition;
+    private AIMovement aiMovement;
 
     private void Awake()
     {
         sightline.OnOverlap += SetPlayerPosition;
         attackRange.OnOverlap += SetPlayerPosition;
+        aiMovement = GetComponent<AIMovement>();
     }
 
     public void SetPlayerPosition(Vector2 pos_)
     {
         playerPosition = pos_;
     }
+    [ContextMenu("Patrol")]
     public void Patrol()
     {
-
+        nextPosition = new Vector2(Random.Range(startingPosition.x - patrolRange.x, startingPosition.x + patrolRange.x),
+            Random.Range(startingPosition.y - patrolRange.y, startingPosition.y + patrolRange.y));
+        aiMovement.InitializeMovement(nextPosition);
     }
 
     private IEnumerator PatrolCoroutine(Vector3 nextPos)
@@ -41,7 +50,10 @@ public abstract class Enemy : MonoBehaviour
         yield return null;
     }
     public abstract void Attack();
-    public abstract void TakeDamage(float dmg_);
+    public void TakeDamage(int dmg_)
+    {
+        HP -= dmg_;
+    }
     public abstract void Die();
     public abstract void Pursue();
 
