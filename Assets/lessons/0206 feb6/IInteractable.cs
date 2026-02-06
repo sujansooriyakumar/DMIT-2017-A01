@@ -2,5 +2,10 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    public void OnInteract();
+    public void Interact();
+}
+
+public interface IDamagable
+{
+    public void TakeDamage();
 }
