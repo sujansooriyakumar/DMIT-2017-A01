@@ -29,6 +29,7 @@ public abstract class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        startingPosition = transform.position;
         sightline.OnOverlap += SetPlayerPosition;
         attackRange.OnOverlap += SetPlayerPosition;
         aiMovement = GetComponent<AIMovement>();
