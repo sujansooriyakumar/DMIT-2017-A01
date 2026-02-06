@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: eadbc08874631114ba39fbc80640011d, type: 3}
   m_Name: boarWalkRight
   m_EditorClassIdentifier: Assembly-CSharp::AnimationData
   animationName: 
@@ -17,4 +17,4 @@ MonoBehaviour:
   - {fileID: 384956638, guid: 94fa2d9887d0ed6498f0a460b7563873, type: 3}
   - {fileID: 22396756, guid: 94fa2d9887d0ed6498f0a460b7563873, type: 3}
   - {fileID: 1721230868, guid: 94fa2d9887d0ed6498f0a460b7563873, type: 3}
-  frameDelay: 1
+  frameDelay: 0.3

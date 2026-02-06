@@ -17,4 +17,4 @@ MonoBehaviour:
   - {fileID: -1197932588, guid: 94fa2d9887d0ed6498f0a460b7563873, type: 3}
   - {fileID: -1883029616, guid: 94fa2d9887d0ed6498f0a460b7563873, type: 3}
   - {fileID: -624498680, guid: 94fa2d9887d0ed6498f0a460b7563873, type: 3}
-  frameDelay: 1
+  frameDelay: 0.3

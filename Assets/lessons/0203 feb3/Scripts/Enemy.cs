@@ -14,7 +14,7 @@ public abstract class Enemy : MonoBehaviour
     public CircleOverlap sightline;
     public CircleOverlap attackRange;
 
-    private Vector2 playerPosition;
+    protected Vector2 playerPosition;
     private Coroutine attackCoroutine;
 
     public Vector2 patrolRange;
@@ -24,6 +24,9 @@ public abstract class Enemy : MonoBehaviour
 
     private bool patroling;
 
+    public abstract void Attack();
+    public abstract void Die();
+
     private void Awake()
     {
         sightline.OnOverlap += SetPlayerPosition;
@@ -32,45 +35,20 @@ public abstract class Enemy : MonoBehaviour
         aiMovement.OnArrive += Patrol;
     }
 
-    public void SetPlayerPosition(Vector2 pos_)
-    {
-        playerPosition = pos_;
-    }
-    [ContextMenu("Patrol")]
-    public void Patrol()
-    {
-        nextPosition = new Vector2(Random.Range(startingPosition.x - patrolRange.x, startingPosition.x + patrolRange.x),
-            Random.Range(startingPosition.y - patrolRange.y, startingPosition.y + patrolRange.y));
-        aiMovement.InitializeMovement(nextPosition);
-    }
-
-  
-
- 
-    public abstract void Attack();
-    public void TakeDamage(int dmg_)
-    {
-        HP -= dmg_;
-    }
-    public abstract void Die();
-    public void Pursue()
-    {
-        aiMovement.InitializeMovement(playerPosition);
-    }
-
-
-
     private void Update()
     {
         if (attackRange.CircleOverlapCheck())
         {
             aiMovement.StopMovement();
+            StartAttackCoroutine();
             return;
         }
 
         if (sightline.CircleOverlapCheck())
         {
+            aiMovement.StopMovement();
             Pursue();
+
             return;
         }
         if (!patroling)
@@ -79,18 +57,39 @@ public abstract class Enemy : MonoBehaviour
             patroling = true;
         }
     }
+
+    public void SetPlayerPosition(Vector2 pos_)
+    {
+        playerPosition = pos_;
+    }
+    public void Patrol()
+    {
+        nextPosition = new Vector2(Random.Range(startingPosition.x - patrolRange.x, startingPosition.x + patrolRange.x),
+            Random.Range(startingPosition.y - patrolRange.y, startingPosition.y + patrolRange.y));
+        aiMovement.InitializeMovement(nextPosition);
+    }
+
+    public void TakeDamage(int dmg_)
+    {
+        HP -= dmg_;
+    }
+    public void Pursue()
+    {
+        aiMovement.InitializeMovement(playerPosition);
+    }
     public void StartAttackCoroutine()
     {
         if(attackCoroutine == null) attackCoroutine = StartCoroutine(AttackCoroutine());
     }
     public IEnumerator AttackCoroutine()
     {
-        while (true)
+        while (attackRange.CircleOverlapCheck())
         {
             Attack();
             yield return new WaitForSeconds(attackDelay);
         }
-       // yield return null;
+        attackCoroutine = null;
     }
+
 
 }
