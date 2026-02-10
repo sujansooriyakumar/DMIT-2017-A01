@@ -1,8 +1,11 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
     public Transform[] spawnPoints;
+    public List<Enemy> activeEnemies = new List<Enemy>();
 
     public void Spawn(EnemyState enemyState, int hp)
     {
@@ -11,6 +14,7 @@ public class EnemySpawner : MonoBehaviour
 
         Enemy e = tmp.GetComponent<Enemy>();
         e.HP = hp;
+        activeEnemies.Add(e);
         e.enemyID = enemyState.enemyID;
         e.ATK = enemyState.enemySO.ATK;
         e.DEF = enemyState.enemySO.DEF;

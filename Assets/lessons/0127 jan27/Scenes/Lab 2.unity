@@ -995,7 +995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1226611028}
   - component: {fileID: 1226611027}
-  - component: {fileID: 1226611026}
+  - component: {fileID: 1226611029}
   m_Layer: 0
   m_Name: GameStateManager
   m_TagString: Untagged
@@ -1003,33 +1003,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1226611026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226611025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5362785fac8c4e46b1499c0b38adbeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameObjectDebug
-  OnStarted:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1226611027}
-        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
-        m_MethodName: InitializeMap
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1226611027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,7 +1022,7 @@ MonoBehaviour:
       currentHP: 5
       enemySO: {fileID: 11400000, guid: 5dcafd32f37f5c44c91c66ef14257b7e, type: 2}
     - enemyID: 1
-      currentHP: 0
+      currentHP: 7
       enemySO: {fileID: 11400000, guid: 5dcafd32f37f5c44c91c66ef14257b7e, type: 2}
   - mapID: 1
     enemyStates:
@@ -1092,6 +1065,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1226611029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226611025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5362785fac8c4e46b1499c0b38adbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameObjectDebug
+  OnStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1226611027}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
+        m_MethodName: InitializeMap
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1285160027
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,6 +1252,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 146617246}
   - {fileID: 2077415111}
+  activeEnemies: []
 --- !u!1 &1420633758
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,15 +9,25 @@ public class GameStateManager : MonoBehaviour
     public List<MapState> mapStates = new List<MapState>();
     public Transform mapParent;
     private EnemySpawner spawner;
+    private int currentMapID;
+    private MapState currentMapState;
+
+    private void Start()
+    {
+        foreach(MapState mapState in mapStates)
+        {
+            mapState.InitializeDictionary();
+        }
+    }
     public void InitializeMap(int mapID_)
     {
-        MapState targetMap = null;
+       
         foreach (MapState mapState in mapStates)
         {
             if(mapState.mapID == mapID_)
             {
-                targetMap = mapState;
-                BeginEnemySpawn(targetMap);
+                currentMapState = mapState;
+                BeginEnemySpawn(currentMapState);
                 break;
             }
         }
@@ -32,6 +42,22 @@ public class GameStateManager : MonoBehaviour
             if(enemy.currentHP > 0) spawner.Spawn(enemy, enemy.currentHP);
         }
     }
+
+    [ContextMenu("Try Save")]
+    public void SaveGameState()
+    {
+        if (spawner != null)
+        {
+            List<Enemy> enemies = spawner.activeEnemies;
+            foreach (Enemy enemy in enemies)
+            {
+                currentMapState.enemyDictionary[enemy.enemyID].currentHP = enemy.HP;
+                Debug.Log(currentMapState.enemyDictionary[enemy.enemyID].currentHP);
+            
+            }
+        }
+        
+    }
 }
 
 [Serializable] 
@@ -39,6 +65,16 @@ public class MapState
 {
     public int mapID;
     public List<EnemyState> enemyStates;
+    public Dictionary<int, EnemyState> enemyDictionary;
+
+    public void InitializeDictionary()
+    {
+        enemyDictionary = new Dictionary<int, EnemyState>();
+        foreach(EnemyState enemy in enemyStates)
+        {
+            enemyDictionary.Add(enemy.enemyID, enemy);
+        }
+    }
 }
 
 [Serializable]

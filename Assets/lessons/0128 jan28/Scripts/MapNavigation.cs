@@ -44,6 +44,7 @@ public class MapNavigation : MonoBehaviour
         currentMap = Instantiate(mapDictionary[mapID].prefab, mapParent);
         Grid g = mapParent.GetComponent<Grid>();
         player.position = g.GetCellCenterWorld(mapDictionary[mapID].entryPoints[portalID].cell);
+        GameStateManager.Instance.InitializeMap(mapID);
         OnMapEnter?.Invoke();
         // get the cell that we want to the player to spawn in mapDictionary[mapID].entryPoints[portalID].cell
         // convert the cell into world space. returns a Vector3 <-- the new position
