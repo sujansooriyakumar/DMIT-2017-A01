@@ -24,7 +24,7 @@ public class GameStateManager : MonoBehaviour
        
         foreach (MapState mapState in mapStates)
         {
-            if(mapState.mapID == mapID_)
+            if(mapState.mapData.mapID == mapID_)
             {
                 currentMapState = mapState;
                 BeginEnemySpawn(currentMapState);
@@ -63,7 +63,7 @@ public class GameStateManager : MonoBehaviour
 [Serializable] 
 public class MapState
 {
-    public int mapID;
+    public GameMap mapData;
     public List<EnemyState> enemyStates;
     public Dictionary<int, EnemyState> enemyDictionary;
 
