@@ -29,7 +29,7 @@ public class GameStateManager : MonoBehaviour
         foreach(EnemyState enemy in map.enemyStates)
         {
 
-            if(enemy.currentHP > 0) spawner.Spawn(enemy.enemySO, enemy.currentHP);
+            if(enemy.currentHP > 0) spawner.Spawn(enemy, enemy.currentHP);
         }
     }
 }
