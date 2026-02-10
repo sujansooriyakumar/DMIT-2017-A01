@@ -12,6 +12,10 @@ public class GameStateManager : MonoBehaviour
     private int currentMapID;
     private MapState currentMapState;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         foreach(MapState mapState in mapStates)
