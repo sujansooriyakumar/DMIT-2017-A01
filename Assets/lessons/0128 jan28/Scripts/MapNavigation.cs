@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -40,6 +41,8 @@ public class MapNavigation : MonoBehaviour
         // move the player to the designated cell
 
         GameStateManager.Instance.SaveGameState();
+
+        currentMap.GetComponentInChildren<EnemySpawner>().ClearEnemies();
         Destroy(currentMap);
         
         currentMap = Instantiate(mapDictionary[mapID].prefab, mapParent);

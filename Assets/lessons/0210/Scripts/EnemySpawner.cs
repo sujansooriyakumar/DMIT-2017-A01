@@ -21,5 +21,14 @@ public class EnemySpawner : MonoBehaviour
         e.ATK = enemySO.ATK;
         e.DEF = enemySO.DEF;
     }
+
+    public void ClearEnemies()
+    {
+        foreach(Enemy e in activeEnemies)
+        {
+            Destroy(e.gameObject);
+        }
+        activeEnemies.Clear();
+    }
 }
 
