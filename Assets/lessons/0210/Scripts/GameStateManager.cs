@@ -50,6 +50,17 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
+    public void ResetEnemies()
+    {
+        foreach(MapState m in gameState.mapStates)
+        {
+            foreach(EnemyState e in m.enemyStates)
+            {
+                e.currentHP = e.maxHP;
+            }
+        }
+    }
+
     [ContextMenu("Try Save")]
     public void SaveGameState()
     {
@@ -89,6 +100,7 @@ public class EnemyState
 {
     public int enemyID;
     public int currentHP;
+    public int maxHP;
 }
 
 [Serializable]
