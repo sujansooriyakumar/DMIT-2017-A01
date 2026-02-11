@@ -9,7 +9,7 @@
                 },
                 {
                     "enemyID": 1,
-                    "currentHP": 5
+                    "currentHP": 2
                 }
             ]
         },
@@ -22,7 +22,7 @@
                 },
                 {
                     "enemyID": 1,
-                    "currentHP": 5
+                    "currentHP": 2
                 }
             ]
         },
@@ -31,7 +31,7 @@
             "enemyStates": [
                 {
                     "enemyID": 0,
-                    "currentHP": 10
+                    "currentHP": 1
                 },
                 {
                     "enemyID": 1,

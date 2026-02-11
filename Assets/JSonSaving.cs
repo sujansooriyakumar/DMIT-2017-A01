@@ -18,12 +18,12 @@ public class JSonSaving : MonoBehaviour
         
     }
 
-    public void SaveData(SaveData profile_)
+/*    public void SaveData(SaveData profile_)
     {
         string file = filePath + profile_.profileName + ".json";
         string json = JsonUtility.ToJson(profile_, true);
         File.WriteAllText(file, json);
-    }
+    }*/
 
 
 
@@ -31,12 +31,12 @@ public class JSonSaving : MonoBehaviour
 
     public void LoadData()
     {
-        string s = "Assets/Resources/sujan.json";
+        string s = "Assets/Resources/save.json";
         if (File.Exists(s))
         {
             string json = File.ReadAllText(s);
 
-            profileData = JsonUtility.FromJson<SaveData>(json);
+            GameStateManager.Instance.gameState = JsonUtility.FromJson<GameState>(json);
         }
 
         else
