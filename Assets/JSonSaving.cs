@@ -11,8 +11,8 @@ public class JSonSaving : MonoBehaviour
     public void SaveData()
     {
         
-        string file = "Assets/Resources/sujan.json";
-        string json = JsonUtility.ToJson(profileData, true);
+        string file = "Assets/Resources/save.json";
+        string json = JsonUtility.ToJson(GameStateManager.Instance.gameState, true);
 
         File.WriteAllText(file, json);
         

@@ -38,7 +38,7 @@ public class MapNavigation : MonoBehaviour
         // instantiate the new map under the corresponding parent
         // move the player to the designated cell
 
-
+        GameStateManager.Instance.SaveGameState();
         Destroy(currentMap);
         
         currentMap = Instantiate(mapDictionary[mapID].prefab, mapParent);
