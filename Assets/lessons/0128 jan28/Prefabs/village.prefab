@@ -3830,3 +3830,4 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 2807543625910176313}
   activeEnemies: []
+  enemyDatabase: {fileID: 11400000, guid: aebb33b005ca08f4580f04755e16b0e1, type: 2}

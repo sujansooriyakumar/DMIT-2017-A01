@@ -995,6 +995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1226611028}
   - component: {fileID: 1226611027}
+  - component: {fileID: 1226611029}
   m_Layer: 0
   m_Name: GameStateManager
   m_TagString: Untagged
@@ -1020,7 +1021,31 @@ MonoBehaviour:
       enemyStates:
       - enemyID: 0
         currentHP: 10
+      - enemyID: 1
+        currentHP: 5
+    - mapID: 1
+      enemyStates:
       - enemyID: 0
+        currentHP: 10
+      - enemyID: 1
+        currentHP: 5
+    - mapID: 2
+      enemyStates:
+      - enemyID: 0
+        currentHP: 10
+      - enemyID: 1
+        currentHP: 5
+    - mapID: 3
+      enemyStates:
+      - enemyID: 0
+        currentHP: 10
+      - enemyID: 1
+        currentHP: 5
+    - mapID: 4
+      enemyStates:
+      - enemyID: 0
+        currentHP: 10
+      - enemyID: 1
         currentHP: 5
   mapParent: {fileID: 791511146}
 --- !u!4 &1226611028
@@ -1038,6 +1063,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1226611029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226611025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09084a8bedec47c4f85d26a16d0d17d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JSonSaving
+  filePath: 
+  profileData:
+    profileName: 
+    highScore: 0
+    ghostData:
+      ghostDataFrames: []
 --- !u!1 &1285160027
 GameObject:
   m_ObjectHideFlags: 0
