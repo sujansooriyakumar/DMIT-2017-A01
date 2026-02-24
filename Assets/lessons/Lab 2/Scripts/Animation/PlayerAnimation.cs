@@ -12,6 +12,7 @@ public class PlayerAnimation : MonoBehaviour
     private Dictionary<PlayerAnimationState, AnimationData> animationDictionary = new Dictionary<PlayerAnimationState, AnimationData>();
     private SpriteAnimation spriteAnimator;
     public PlayerAnimationState currentState;
+    public event Action<PlayerAnimationState> OnAnimationStateUpdate;
     public void Start()
     {
         currentState = PlayerAnimationState.IDLE_DOWN;
@@ -35,16 +36,17 @@ public class PlayerAnimation : MonoBehaviour
             currentState = PlayerAnimationState.WALK_UP;
         }
 
-        else if (moveDirection.x < 0)
+        else if (moveDirection.x > 0)
         {
             currentState = PlayerAnimationState.WALK_RIGHT;
         }
 
-        else if(moveDirection.x > 0)
+        else if(moveDirection.x < 0)
         {
             currentState = PlayerAnimationState.WALK_LEFT;
         }
         spriteAnimator.InitializeAnimation(animationDictionary[currentState]);
+        OnAnimationStateUpdate?.Invoke(currentState);
 
     }
     public PlayerAnimationState GetIdleState(PlayerAnimationState currentState)

@@ -36,7 +36,7 @@ public class DialogBox : MonoBehaviour
     {
         dialogDatabase.Initialize();
         dialogDictionary = dialogDatabase.dialogDictionary;
-        InitiateDialog(0);
+        gameObject.SetActive(false);
     }
 
     public void ContinueDialog(InputAction.CallbackContext c)
