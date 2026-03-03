@@ -4,14 +4,15 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public Dictionary<InventoryItemSO, InventoryItemData> inventory = new Dictionary<InventoryItemSO, InventoryItemData>();
-    public InventoryItemSO tmp;
+    public InventoryItemSO[] tmp;
 
     private void Start()
     {
-        AddItem(tmp);
-        AddItem(tmp);
+       foreach(InventoryItemSO item in tmp)
+        {
+            AddItem(item);
+        }
 
-        Debug.Log(inventory[tmp].quantity);
     }
     public void AddItem(InventoryItemSO itemToAdd_)
     {
