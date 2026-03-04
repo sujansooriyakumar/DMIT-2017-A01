@@ -2734,6 +2734,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: db6463485ce21d44a92a04bf2a46594a, type: 2}
   - {fileID: 11400000, guid: 8d67457d273c7624886ff91662cd8130, type: 2}
   - {fileID: 11400000, guid: 6c9bd4338c291814b85ff8d32fc55172, type: 2}
+  - {fileID: 11400000, guid: de6b46407c6506b42b090af6d3eb4ba7, type: 2}
+  - {fileID: 11400000, guid: 79a2a860b48309e488e7b0a64078cb41, type: 2}
+  - {fileID: 11400000, guid: 33b7fdddb1930a74eab392f9f922b5dc, type: 2}
 --- !u!4 &2114767878
 Transform:
   m_ObjectHideFlags: 0
@@ -3608,8 +3611,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 304747680229636760}
   m_HandleRect: {fileID: 6137426477067443707}
   m_Direction: 2
-  m_Value: 1.0000001
-  m_Size: 0.45341986
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4556,7 +4559,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -56.030907, y: -0.00017092329}
-  m_SizeDelta: {x: 56.03, y: 1338.1792}
+  m_SizeDelta: {x: 56.03, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &5966671527756185163
 RectTransform:
@@ -5835,6 +5838,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5964660574990621041}
   - component: {fileID: 171642365761100947}
+  - component: {fileID: 9040220585963575756}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -5842,6 +5846,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9040220585963575756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9040220585963575755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
+  m_HorizontalFit: 0
+  m_VerticalFit: 1
 --- !u!114 &9203209003205007791
 MonoBehaviour:
   m_ObjectHideFlags: 0
