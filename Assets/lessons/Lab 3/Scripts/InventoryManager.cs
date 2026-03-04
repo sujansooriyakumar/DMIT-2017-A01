@@ -23,12 +23,15 @@ public class InventoryManager : MonoBehaviour
 
     public void RemoveItem(InventoryItemSO itemToRemove_)
     {
-        //if(inventory.TryGetValue(itemToRemove_, out ))
-        if (inventory[itemToRemove_].quantity > 1)
+        if(inventory.TryGetValue(itemToRemove_, out InventoryItemData data))
         {
-            inventory[itemToRemove_].quantity--;
-            return;
+            if (inventory[itemToRemove_].quantity > 1)
+            {
+                inventory[itemToRemove_].quantity--;
+                return;
+            }
+            inventory.Remove(itemToRemove_);
         }
-        inventory.Remove(itemToRemove_);
+       
     }
 }
