@@ -23,5 +23,8 @@ public class InventoryButton : MonoBehaviour
     public void ButtonClick()
     {
         EquipmentManager.instance.EquipItem(itemData);
+       // InventoryContainer container;
+       // container.AddItemToContainer(itemData.config);
+       // container.AddItemToPlayerInventory(itemData.config);
     }
 }
