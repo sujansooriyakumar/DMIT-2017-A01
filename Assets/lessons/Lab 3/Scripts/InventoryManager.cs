@@ -8,7 +8,7 @@ public class InventoryManager : MonoBehaviour
     public InventoryItemSO[] tmp;
     public event Action<Dictionary<InventoryItemSO, InventoryItemData>> onInventoryUpdate;
 
-    private void Start()
+    private void OnEnable()
     {
        foreach(InventoryItemSO item in tmp)
         {
