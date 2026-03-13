@@ -19,7 +19,13 @@ public class QuestManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
         InitializeQuestLibrary();
+       
 
+    }
+
+    private void Start()
+    {
+        ActivateQuest(quests[0]);
     }
 
     [ContextMenu ("Initialize Quests")]
@@ -46,6 +52,7 @@ public class QuestManager : MonoBehaviour
     public void CompleteQuest(QuestData questData)
     {
         questLibrary[questData.Config].isComplete = true;
+        onQuestUpdate?.Invoke(questData);
     }
 
     public void ActivateQuest(QuestSO quest)
