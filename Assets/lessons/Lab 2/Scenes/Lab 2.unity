@@ -1798,22 +1798,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScreenFader
   screenFade: {fileID: 1946979313}
---- !u!4 &718117465
-Transform:
+--- !u!224 &718117465
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718117463}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.85879, y: -1.54687, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1522389138}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -4.85879, y: -1.54687}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &726345837
 GameObject:
   m_ObjectHideFlags: 0
@@ -4210,7 +4214,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 899384577}
   m_HandleRect: {fileID: 899384576}
   m_Direction: 0
-  m_Value: 0.9999978
+  m_Value: 1.0000006
   m_Size: 0.94520503
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4336,7 +4340,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1188645039}
   m_HandleRect: {fileID: 1188645038}
   m_Direction: 0
-  m_Value: 0.99999946
+  m_Value: 0.9999989
   m_Size: 0.94520503
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8189,7 +8193,6 @@ SceneRoots:
   - {fileID: 791511146}
   - {fileID: 695891365}
   - {fileID: 445386976}
-  - {fileID: 718117465}
   - {fileID: 1420633761}
   - {fileID: 471349130}
   - {fileID: 726345840}
@@ -8201,3 +8204,4 @@ SceneRoots:
   - {fileID: 1409986549}
   - {fileID: 974860426}
   - {fileID: 157064335}
+  - {fileID: 718117465}
